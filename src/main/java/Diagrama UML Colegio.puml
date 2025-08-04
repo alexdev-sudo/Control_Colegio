@@ -1,0 +1,17 @@
+@startuml
+scale 450 width
+class Estudiante{}
+class colegio{}
+class matricula{
+Nombre Alumno()
+}
+class profesor{}
+class seccion {}
+
+Estudiante "0..*" - "1..*"seccion
+(Estudiante,seccion) .. matricula
+seccion o-- profesor
+seccion o-- Estudiante
+colegio <|-- seccion
+
+@enduml
