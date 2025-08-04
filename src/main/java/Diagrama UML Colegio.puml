@@ -1,17 +1,26 @@
 @startuml
 scale 450 width
-class Estudiante{}
-class colegio{}
+class Estudiante{
+}
+class colegio{
+}
 class matricula{
 Nombre Alumno()
 }
-class profesor{}
-class seccion {}
-
-Estudiante "0..*" - "1..*"seccion
-(Estudiante,seccion) .. matricula
+class profesor{
+}
+class seccion {
+}
+     'herencia
+colegio <|-- seccion
+     'Agregacion
 seccion o-- profesor
 seccion o-- Estudiante
-colegio <|-- seccion
+     'Asociacion entre estudiante y seccion
+Estudiante "0..*" - "1..*"seccion
+     'Matricula relaciona estudiante y seccion
+matricula .. estudiante
+matricula .. seccion
+
 
 @enduml
